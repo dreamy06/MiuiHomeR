@@ -42,12 +42,12 @@ android {
             isShrinkResources = true
             setProguardFiles(listOf("proguard-rules.pro", "proguard-log.pro"))
             if (keystorePath != null) {
-                signingConfig = signingConfigs.getByName("release")
+                signingConfig = signingConfigs.getByName("debug")
             }
         }
         debug {
             if (keystorePath != null) {
-                signingConfig = signingConfigs.getByName("release")
+                signingConfig = signingConfigs.getByName("debug")
             }
         }
     }

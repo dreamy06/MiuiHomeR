@@ -20,7 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--repackageclasses "余空"
+-repackageclasses "miuiHomeR"
 -obfuscationdictionary dict.txt
 -classobfuscationdictionary dict.txt
 -packageobfuscationdictionary dict.txt
