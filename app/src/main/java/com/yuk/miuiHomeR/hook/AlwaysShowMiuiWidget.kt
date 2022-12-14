@@ -40,7 +40,5 @@ object AlwaysShowMiuiWidget : BaseHook() {
                 hook2?.unhook()
             }
         }
-
     }
 }
-

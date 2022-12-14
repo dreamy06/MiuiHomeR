@@ -26,13 +26,14 @@ import com.zhenxiang.blur.model.CornersRadius
 import de.robv.android.xposed.XposedHelpers
 
 @RequiresApi(Build.VERSION_CODES.S)
-object EnableFolderIconBlur : BaseHook() {
+object EnableBigFolderIconBlur : BaseHook() {
     override fun init() {
-        if (!mPrefsMap.getBoolean("small_folder_blur")) return
+        if (!mPrefsMap.getBoolean("big_folder_blur")) return
         var isShowEditPanel = false
-        val value = mPrefsMap.getInt("small_folder_corner", 58).toFloat()
-        val value1 = mPrefsMap.getInt("small_folder_side", 250)
-        val value2 = mPrefsMap.getInt("small_folder_drag", 25)
+        val value = mPrefsMap.getInt("big_folder_corner", 58).toFloat()
+        val value1 = mPrefsMap.getInt("big_folder_width", 650)
+        val value2 = mPrefsMap.getInt("big_folder_height", 585)
+        val value3 = mPrefsMap.getInt("big_folder_drag", 27)
         val launcherClass = "com.miui.home.launcher.Launcher".findClass()
         val launcherStateClass = "com.miui.home.launcher.LauncherState".findClass()
         val folderInfo = "com.miui.home.launcher.FolderInfo".findClass()
@@ -45,18 +46,14 @@ object EnableFolderIconBlur : BaseHook() {
         //小文件夹模糊
         try {
             findMethod(
-                loadClass("com.miui.home.launcher.folder.FolderIcon1x1"), true
+                loadClass("com.miui.home.launcher.folder.FolderIcon2x2_4"), true
             ) { name == "onFinishInflate" }
         } catch (e: Exception) {
             findMethod(
                 loadClass("com.miui.home.launcher.FolderIcon"), true
             ) { name == "onFinishInflate" }
         }.hookAfter {
-            val mIconImageView = try {
-                it.thisObject.getObjectFieldAs<ImageView>("mIconImageView")
-            } catch (e: Exception) {
-                it.thisObject.getObjectFieldAs<ImageView>("mImageView")
-            }
+            val mIconImageView = it.thisObject.getObjectFieldAs<ImageView>("mImageView")
             val mIconContainer = mIconImageView.parent as FrameLayout
             val mDockBlur = XposedHelpers.getAdditionalInstanceField(it.thisObject, "mDockBlur") as BlurFrameLayout
             val view = FrameLayout(mIconImageView.context)
@@ -69,8 +66,8 @@ object EnableFolderIconBlur : BaseHook() {
             mIconContainer.addView(mDockBlur, 0)
             val lp1 = mDockBlur.layoutParams as FrameLayout.LayoutParams
             lp1.gravity = Gravity.CENTER
-            lp1.height = value1
             lp1.width = value1
+            lp1.height = value2
             launcherClass.hookAfterMethod("showEditPanel", Boolean::class.java) { hookParam ->
                 isShowEditPanel = hookParam.args[0] as Boolean
                 if (isShowEditPanel) {
@@ -92,7 +89,6 @@ object EnableFolderIconBlur : BaseHook() {
                 else mDockBlur.visibility = View.GONE
             }
         }
-
         val dragViewClass = "com.miui.home.launcher.DragView".findClass()
         dragViewClass.hookAfterAllMethods("showWithAnim") {
             val dragView = it.thisObject as View
@@ -101,16 +97,16 @@ object EnableFolderIconBlur : BaseHook() {
             val itemType = mDragInfo.getObjectField("itemType") as Int
             val mLauncher = it.thisObject.getObjectField("mLauncher")
             val isFolderShowing = mLauncher?.callMethod("isFolderShowing") as Boolean
-            if (!isFolderShowing && itemType == 2) {
+            if (!isFolderShowing && itemType == 21) {
                 val blurDrawable = dragView.createBackgroundBlurDrawable()
                 blurDrawable?.callMethod("setColor", Color.parseColor("#44FFFFFF"))
                 blurDrawable?.callMethod("setBlurRadius", 100)
                 blurDrawable?.callMethod("setCornerRadius", value, value, value, value)
                 val backgroundDrawable = LayerDrawable(arrayOf(blurDrawable))
-                backgroundDrawable.setLayerHeight(0, value1)
+                backgroundDrawable.setLayerHeight(0, value2)
                 backgroundDrawable.setLayerWidth(0, value1)
                 backgroundDrawable.setLayerGravity(0, Gravity.CENTER_HORIZONTAL)
-                backgroundDrawable.setLayerInsetTop(0, value2)
+                backgroundDrawable.setLayerInsetTop(0, value3)
                 dragView.background = backgroundDrawable
             }
         }

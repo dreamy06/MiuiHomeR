@@ -29,6 +29,7 @@
     <string name="using_full_width_of_folder_view">利用整个文件夹视图的宽度</string>
     <string name="number_of_icons_in_folder_iew">文件夹视图内图标的排数</string>
     <string name="dock_settings">底栏</string>
+    <string name="enable_dock_hook">启用底栏钩子</string>
     <string name="enable_dock">启用底栏模糊</string>
     <string name="bottom_margin_of_dock_icon">底栏图标下边距</string>
     <string name="bottom_margin_of_home_icon">页面指示器下边距</string>
@@ -86,6 +87,7 @@
     <string name="tg_chat">Telegram 组群</string>
     <string name="tg_channel">Telegram 频道</string>
     <string name="qq_group">QQ 群</string>
+    <string name="qq_channel">QQ 频道</string>
     <string name="discussion">讨论</string>
     <string name="repo_summary">欢迎更多开发者参与</string>
     <string name="translate">帮助我们将应用翻译到你的语言</string>
@@ -104,4 +106,14 @@
     <string name="launcher_icon">桌面图标</string>
     <string name="recents_card_remove_anim">修改划卡动画</string>
     <string name="recents_icon">移除应用图标</string>
+    <string name="recent_text">无后台时显示的文本</string>
+    <string name="recent_text_summary">你也可以键入一个空格来删除该文本展示</string>
+    <string name="big_icon_corner">中等图标圆角跟随</string>
+    <string name="big_folder_blur">大文件夹模糊</string>
+    <string name="big_folder_blur_corner_radius">大文件夹模糊圆角半径</string>
+    <string name="big_folder_blur_background_width">大文件夹模糊视图背景宽度</string>
+    <string name="big_folder_blur_background_height">大文件夹模糊视图背景高度</string>
+    <string name="big_folder_blur_drag_offset">大文件夹拖动视图模糊顶部偏移</string>
+    <string name="mtk_warning">联发科开启该功能可能导致手势动画卡顿</string>
+    <string name="mtk_warning1">联发科使用完整模糊可能导致手势动画卡顿</string>
 </resources>

@@ -29,6 +29,7 @@
     <string name="using_full_width_of_folder_view">การใช้ความกว้างของมุมมองโฟลเดอร์แบบเต็ม</string>
     <string name="number_of_icons_in_folder_iew">จำนวนแถวของไอคอนในมุมมองโฟลเดอร์</string>
     <string name="dock_settings">ตั้งค่า Dock</string>
+    <string name="enable_dock_hook">Enable dock hook</string>
     <string name="enable_dock">เปิดใช้งานการเบลอ</string>
     <string name="bottom_margin_of_dock_icon">ขอบล่างของไอคอน Dock</string>
     <string name="bottom_margin_of_home_icon">ระยะห่างของตัวบ่งชี้หน้า</string>
@@ -103,4 +104,7 @@
     <string name="system_default">Default</string>
     <string name="launcher_icon">Launcher Icon</string>
     <string name="recents_card_remove_anim">Modify the anim for removing cards</string>
+    <string name="recents_icon">Hide App Icon</string>
+    <string name="recent_text">Text displayed when no recent task</string>
+    <string name="recent_text_summary">Also you can type a space to remove the text</string>
 </resources>

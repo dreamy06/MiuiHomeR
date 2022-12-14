@@ -29,6 +29,7 @@
     <string name="using_full_width_of_folder_view">Using the full width of the folder view</string>
     <string name="number_of_icons_in_folder_iew">Number of rows of icons in the folder view</string>
     <string name="dock_settings">Dock</string>
+    <string name="enable_dock_hook">Enable dock hook</string>
     <string name="enable_dock">Enable dock blur</string>
     <string name="bottom_margin_of_dock_icon">Bottom margin of dock icon</string>
     <string name="bottom_margin_of_home_icon">Bottom margin of page indicator</string>
@@ -86,6 +87,7 @@
     <string name="tg_chat">Telegram Chat</string>
     <string name="tg_channel">Telegram Channel</string>
     <string name="qq_group">QQ Group</string>
+    <string name="qq_channel">QQ Channel</string>
     <string name="discussion">Discussion</string>
     <string name="repo_summary">Welcome more developers to participate in the development</string>
     <string name="translate">Help us translate the app to your language</string>
@@ -98,10 +100,20 @@
     <string name="anim_speed_recent">Animation speed in and out of recent tasks</string>
     <string name="home_fold_dock">Dock for folded devices</string>
     <string name="home_all_apps_blur">Enable All Apps Container View Blur</string>
-    <string name="home_all_apps_blur_summary">Please set app drawer background transparency to 100% to use this feature. MediaTek devices use this feature, the wallpaper can easily become a pure black screen</string>
+    <string name="home_all_apps_blur_summary">Please set app drawer background transparency to 100% to use this feature. MediaTek devices use this feature when the wallpaper can easily become pure black</string>
     <string name="settings">Settings</string>
     <string name="system_default">Default</string>
     <string name="launcher_icon">Launcher Icon</string>
     <string name="recents_card_remove_anim">Modify the anim for removing cards</string>
     <string name="recents_icon">Hide App Icon</string>
+    <string name="recent_text">Text displayed when no recent task</string>
+    <string name="recent_text_summary">Also you can type a space to remove the text</string>
+    <string name="big_icon_corner">Medium icon round corner follow</string>
+    <string name="big_folder_blur">Big folder blur</string>
+    <string name="big_folder_blur_corner_radius">Big folder blur corner radius</string>
+    <string name="big_folder_blur_background_width">Big folder blur view background width</string>
+    <string name="big_folder_blur_background_height">Big folder blur view background height</string>
+    <string name="big_folder_blur_drag_offset">Big folder drag view blur top offset</string>
+    <string name="mtk_warning">MediaTek devices use this feature may cause gesture animation lag</string>
+    <string name="mtk_warning1">MediaTek devices use complete blur may cause gesture animation lag</string>
 </resources>

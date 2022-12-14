@@ -2,15 +2,14 @@ package com.yuk.miuiHomeR.hook
 
 import android.content.Context
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
-import androidx.annotation.RequiresApi
 import com.github.kyuubiran.ezxhelper.init.InitFields.appContext
 import com.github.kyuubiran.ezxhelper.utils.hookAllConstructorAfter
 import com.yuk.miuiHomeR.mPrefsMap
+import com.yuk.miuiHomeR.utils.ktx.atLeastAndroidS
 import com.yuk.miuiHomeR.utils.ktx.callMethod
 import com.yuk.miuiHomeR.utils.ktx.dp2px
 import com.yuk.miuiHomeR.utils.ktx.findClass
@@ -20,10 +19,9 @@ import com.zhenxiang.blur.BlurFrameLayout
 import com.zhenxiang.blur.model.CornersRadius
 import de.robv.android.xposed.XposedHelpers
 
-@RequiresApi(Build.VERSION_CODES.S)
 object Dock : BaseHook() {
     override fun init() {
-
+        if (!mPrefsMap.getBoolean("dock_hook_enabled")) return
         var isShowEditPanel = false
         var isFolderShowing = false
         val launcherClass = "com.miui.home.launcher.Launcher".findClass()
@@ -52,7 +50,7 @@ object Dock : BaseHook() {
         }
 
         // Dock
-        if (mPrefsMap.getBoolean("home_dock_blur")) {
+        if (atLeastAndroidS() && mPrefsMap.getBoolean("home_dock_blur")) {
             hookAllConstructorAfter("com.miui.home.launcher.Launcher") {
                 var mDockBlur = XposedHelpers.getAdditionalInstanceField(it.thisObject, "mDockBlur")
                 if (mDockBlur != null) return@hookAllConstructorAfter
@@ -101,5 +99,4 @@ object Dock : BaseHook() {
             }
         }
     }
-
 }
