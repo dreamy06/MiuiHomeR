@@ -7,7 +7,6 @@
         <DropDownPreference
             android:defaultValue="2"
             android:key="prefs_key_recent_blur"
-            android:summary="@string/mtk_warning1"
             android:title="@string/blur_level"
             app:entries="@array/recent_blur"
             app:entryValues="@array/recent_blur_value" />
@@ -31,11 +30,6 @@
             android:defaultValue="false"
             android:key="prefs_key_home_hide_clean_up"
             android:title="@string/hide_clean_up" />
-
-        <SwitchPreference
-            android:defaultValue="false"
-            android:key="prefs_key_home_hide_small_window"
-            android:title="@string/hide_small_window" />
 
         <SwitchPreference
             android:defaultValue="false"
